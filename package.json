@@ -1,0 +1,20 @@
+{
+  "name": "react-stripe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "stripe": "^6.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0"
+  }
+}
