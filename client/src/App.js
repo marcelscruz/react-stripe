@@ -5,7 +5,7 @@ import axios from 'axios'
 
 class App extends Component {
   state = {
-    response: '',
+    customers: [],
   }
 
   componentDidMount() {
@@ -14,33 +14,30 @@ class App extends Component {
 
   callApi = async () => {
     axios
-      .get('/api/hello')
+      .get('/customers')
       .then(async response => {
-        this.setState({ response: response.data.express })
+        // console.log(response)
+        response.data.data.forEach(customer => {
+          this.setState({ customers: [...this.state.customers, customer] })
+          // console.log(customer)
+        })
       })
       .catch(error => {
         console.log(error)
       })
   }
 
-  // callApi = async () => {
-  //   const response = await fetch('/api/hello')
-  //   const body = await response.json()
-
-  //   if (response.status !== 200) throw Error(body.message)
-  //   console.log(response)
-  //   console.log(body)
-  //   return body
-  // }
-
   render() {
+    console.log(this.state.customers)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Stripe</h1>
         </header>
-        <p className="App-intro">{this.state.response}</p>
+        {this.state.customers.map(customer => {
+          return <h1 key={customer.id}>{customer.email}</h1>
+        })}
       </div>
     )
   }
