@@ -1,8 +1,53 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+import ListItem from './ListItem'
 
 class List extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      customers: [],
+      isFetching: true,
+    }
+  }
+
+  // Fetches the customers list
+  fetchUsers() {
+    axios.get('/customers').then(async res => {
+      if (res.data.cod && res.data.message) {
+        throw new Error(res.data.message)
+      } else {
+        res.data.data.forEach(customer => {
+          this.setState({ customers: [...this.state.customers, customer] })
+        })
+        console.log(res)
+        this.setState({ isFetching: false })
+      }
+    })
+  }
+
+  // Passes each customer to the ListItem component
+  createCustomersList() {
+    return this.state.customers.map(customer => {
+      console.log('here')
+      return <ListItem key={customer.id} customer={customer} />
+    })
+  }
+
+  componentDidMount() {
+    this.fetchUsers()
+  }
+
   render() {
-    return <h1>list</h1>
+    const { customers, isFetching } = this.state
+    console.log(customers)
+    return (
+      <div>
+        <h1>list</h1>
+        {isFetching ? 'Fetching users' : this.createCustomersList()}
+      </div>
+    )
   }
 }
 
