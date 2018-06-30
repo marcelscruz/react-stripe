@@ -1,13 +1,31 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 class ListItem extends Component {
   render() {
-    console.log('listitem comp')
+    const {
+      account_balance,
+      currency,
+      description,
+      email,
+      id,
+      metadata,
+    } = this.props.customer
+
+    const { first_name, last_name } = metadata
+
+    console.log(this.props.customer)
+
     return (
-      <div>
-        <h1>list item</h1>
-      </div>
+      <Link to={`/edit/${id}`}>
+        <div className="list-item">
+          <h2>{first_name + ' ' + last_name}</h2>
+          <h3>{description}</h3>
+          <h3>{email}</h3>
+          <h3>{currency + account_balance}</h3>
+        </div>
+      </Link>
     )
   }
 }

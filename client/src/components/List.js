@@ -21,7 +21,6 @@ class List extends Component {
         res.data.data.forEach(customer => {
           this.setState({ customers: [...this.state.customers, customer] })
         })
-        console.log(res)
         this.setState({ isFetching: false })
       }
     })
@@ -30,7 +29,6 @@ class List extends Component {
   // Passes each customer to the ListItem component
   createCustomersList() {
     return this.state.customers.map(customer => {
-      console.log('here')
       return <ListItem key={customer.id} customer={customer} />
     })
   }
@@ -40,8 +38,7 @@ class List extends Component {
   }
 
   render() {
-    const { customers, isFetching } = this.state
-    console.log(customers)
+    const { isFetching } = this.state
     return (
       <div>
         <h1>list</h1>
