@@ -1,0 +1,13 @@
+.add {
+  // background: red;
+}
+
+.add__header {
+  background: $dark;
+  box-shadow: $shadow;
+  color: $title-color;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1rem;
+  padding: 2rem 3rem 2rem 10rem;
+}

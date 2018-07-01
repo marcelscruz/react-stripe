@@ -1,0 +1,13 @@
+.edit {
+  // background: red;
+}
+
+.edit__header {
+  background: $dark;
+  box-shadow: $shadow;
+  color: $title-color;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1rem;
+  padding: 2rem 3rem;
+}

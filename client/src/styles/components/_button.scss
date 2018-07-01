@@ -1,5 +1,6 @@
 .button {
   border-radius: 0.3rem;
+  cursor: pointer;
   font-size: 1.3rem;
   font-weight: 300;
   outline: none;
@@ -8,14 +9,33 @@
   transition: 0.2s linear;
 }
 
-.header .button {
+.header .button,
+.edit__header > .button {
   @extend .button;
   background: $dark;
   border: 0.1rem solid $light;
   color: $light;
 }
 
-.header .button:hover {
+.header .button:hover,
+.edit__header > .button:hover {
   background: $light;
   color: $dark;
+}
+
+.form .button {
+  border: 0.1rem solid lighten($dark, 20%);
+  box-shadow: 0 0px 2px #2e2e2e;
+  margin: 1rem 0;
+  width: 8rem !important;
+}
+
+.form .button:hover {
+  border-color: $dark;
+  background: $dark;
+  color: $light;
+}
+
+.form .button:first-of-type {
+  margin-right: 1rem;
 }

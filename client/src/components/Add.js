@@ -17,8 +17,10 @@ class Add extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Add</h1>
+      <div className="add">
+        <div className="add__header">
+          <h1>Add</h1>
+        </div>
         <Form onSubmit={this.onSubmit} />
       </div>
     )

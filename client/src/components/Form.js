@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { history } from '../routers/AppRouter'
 
 class Form extends Component {
   constructor(props) {
@@ -100,9 +101,19 @@ class Form extends Component {
             onChange={this.onAccountBalanceChange}
             required
           />
-          <button className="button" onClick={this.onSubmit}>
-            Save
-          </button>
+          <div className="form__buttons">
+            <button className="button" onClick={this.onSubmit}>
+              Save
+            </button>
+            <button
+              className="button"
+              onClick={() => {
+                history.push('/')
+              }}
+            >
+              Go back
+            </button>
+          </div>
         </form>
       </div>
     )

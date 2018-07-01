@@ -6,8 +6,9 @@
 }
 
 .form__input {
-  border: 0.1rem solid $dark;
+  border: 0.1rem solid lighten($dark, 20%);
   border-radius: 0.3rem;
+  box-shadow: 0 0px 2px #2e2e2e;
   font-size: 1rem;
   height: 2rem;
   margin: 0.5rem 0;

@@ -35,10 +35,14 @@ class Edit extends Component {
     const { customer } = this.props
 
     return (
-      <div>
-        <h1>edit</h1>
+      <div className="edit">
+        <div className="edit__header">
+          <h1>Edit customer</h1>
+          <button className="button" onClick={this.onDeleteCustomer}>
+            Delete customer
+          </button>
+        </div>
         <Form customer={customer} onSubmit={this.onSubmit} />
-        <button onClick={this.onDeleteCustomer}>Delete customer</button>
       </div>
     )
   }
