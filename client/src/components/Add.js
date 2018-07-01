@@ -9,7 +9,6 @@ class Add extends Component {
     axios
       .post('/add', customer)
       .then(res => {
-        console.log(res)
         this.props.history.push('/')
       })
       .catch(error => {

@@ -27,12 +27,21 @@ app.post('/add', (req, res) => {
       },
       email: req.body.email,
       description: req.body.description,
+      account_balance: req.body.accountBalance,
     },
     (error, customer) => {
       if (error) throw Error(error)
       res.send(customer)
     },
   )
+})
+
+// Delete user
+app.delete('/delete', (req, res) => {
+  stripe.customers.del(req.body.id.toString(), (error, confirmation) => {
+    if (error) throw Error(error)
+    res.send(confirmation)
+  })
 })
 
 const port = process.env.PORT || 5000

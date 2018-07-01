@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import axios from 'axios'
 import Form from './Form'
 
 class Edit extends Component {
@@ -7,6 +8,19 @@ class Edit extends Component {
   onSubmit = customer => {
     console.log(customer)
     this.props.history.push('/')
+  }
+
+  onDeleteCustomer = () => {
+    const id = this.props.customer.id
+    console.log('delete user with id', id)
+    axios
+      .delete('/delete', { data: { id } })
+      .then(res => {
+        this.props.history.push('/')
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   render() {
@@ -17,6 +31,7 @@ class Edit extends Component {
       <div>
         <h1>edit</h1>
         <Form customer={customer} onSubmit={this.onSubmit} />
+        <button onClick={this.onDeleteCustomer}>Delete customer</button>
       </div>
     )
   }

@@ -10,6 +10,7 @@ class Form extends Component {
       lastName: props.customer && props.customer.metadata.last_name,
       email: props.customer && props.customer.email,
       description: props.customer && props.customer.description,
+      accountBalance: props.customer && props.customer.account_balance,
     }
   }
 
@@ -33,6 +34,11 @@ class Form extends Component {
     this.setState({ description })
   }
 
+  onAccountBalanceChange = e => {
+    const accountBalance = e.target.value
+    this.setState({ accountBalance })
+  }
+
   onSubmit = e => {
     e.preventDefault()
 
@@ -41,6 +47,7 @@ class Form extends Component {
       lastName: this.state.lastName,
       email: this.state.email,
       description: this.state.description,
+      accountBalance: this.state.accountBalance,
     })
   }
 
@@ -80,6 +87,14 @@ class Form extends Component {
             onChange={this.onDescriptionChange}
             required
           />
+
+          <input
+            type="text"
+            placeholder="Account balance"
+            value={this.state.accountBalance}
+            onChange={this.onAccountBalanceChange}
+            required
+          />
           <button onClick={this.onSubmit}>Save customer</button>
         </form>
       </div>
@@ -99,6 +114,7 @@ Form.defaultProps = {
     },
     email: '',
     description: '',
+    account_balance: '',
   },
 }
 
