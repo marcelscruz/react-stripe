@@ -3,14 +3,20 @@ import { connect } from 'react-redux'
 import Form from './Form'
 
 class Edit extends Component {
+  // Receive customer object from Form
+  onSubmit = customer => {
+    console.log(customer)
+    this.props.history.push('/')
+  }
+
   render() {
-    console.log('customer from props', this.props.customer)
-    console.log('all', this.props.all)
+    const { customer } = this.props
+
+    console.log('customer from props', customer)
     return (
       <div>
         <h1>edit</h1>
-        <h2>{this.props.match.params.id}</h2>
-        <Form />
+        <Form customer={customer} onSubmit={this.onSubmit} />
       </div>
     )
   }
@@ -23,9 +29,4 @@ const mapStateToProps = (state, props) => ({
   all: state.customers,
 })
 
-const mapDispatchToProps = dispatch => ({})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Edit)
+export default connect(mapStateToProps)(Edit)

@@ -80,6 +80,7 @@ class Form extends Component {
             onChange={this.onDescriptionChange}
             required
           />
+          <button onClick={this.onSubmit}>Edit</button>
         </form>
       </div>
     )
