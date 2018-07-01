@@ -48,7 +48,6 @@ const mapStateToProps = (state, props) => ({
   customer: state.customers.find(
     customer => customer.id === props.match.params.id,
   ),
-  all: state.customers,
 })
 
 export default connect(mapStateToProps)(Edit)

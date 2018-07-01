@@ -1,0 +1,19 @@
+.button {
+  border-radius: 3px;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  transition: 0.2s linear;
+}
+
+.header .button {
+  @extend .button;
+  background: $dark;
+  border: 0.1rem solid $light;
+  color: $light;
+}
+
+.header .button:hover {
+  background: $light;
+  color: $dark;
+}

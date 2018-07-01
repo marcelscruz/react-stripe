@@ -6,11 +6,11 @@ class Form extends Component {
     super(props)
 
     this.state = {
-      firstName: props.customer && props.customer.metadata.first_name,
-      lastName: props.customer && props.customer.metadata.last_name,
-      email: props.customer && props.customer.email,
-      description: props.customer && props.customer.description,
-      accountBalance: props.customer && props.customer.account_balance,
+      firstName: props.customer.metadata.first_name,
+      lastName: props.customer.metadata.last_name,
+      email: props.customer.email,
+      description: props.customer.description,
+      accountBalance: props.customer.account_balance,
     }
   }
 
@@ -95,7 +95,7 @@ class Form extends Component {
             onChange={this.onAccountBalanceChange}
             required
           />
-          <button onClick={this.onSubmit}>Save customer</button>
+          <button onClick={this.onSubmit}>Save</button>
         </form>
       </div>
     )
