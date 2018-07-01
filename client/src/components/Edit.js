@@ -6,13 +6,21 @@ import Form from './Form'
 class Edit extends Component {
   // Receive customer object from Form
   onSubmit = customer => {
-    console.log(customer)
-    this.props.history.push('/')
+    const id = this.props.customer.id
+
+    axios
+      .put('/edit', { ...customer, id })
+      .then(res => {
+        this.props.history.push('/')
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   onDeleteCustomer = () => {
     const id = this.props.customer.id
-    console.log('delete user with id', id)
+
     axios
       .delete('/delete', { data: { id } })
       .then(res => {
@@ -26,7 +34,6 @@ class Edit extends Component {
   render() {
     const { customer } = this.props
 
-    console.log('customer from props', customer)
     return (
       <div>
         <h1>edit</h1>
