@@ -15,15 +15,20 @@ class List extends Component {
 
   // Fetch and dispatch the customers list
   fetchUsers() {
-    axios.get('/customers').then(async res => {
-      if (res.data.cod && res.data.message) {
-        throw new Error(res.data.message)
-      } else {
-        console.log(res.data.data)
-        this.props.setCustomers(res.data.data)
-        this.setState({ isFetching: false })
-      }
-    })
+    axios
+      .get('/customers')
+      .then(async res => {
+        if (res.data.cod && res.data.message) {
+          throw new Error(res.data.message)
+        } else {
+          // console.log(res.data.data)
+          this.props.setCustomers(res.data.data)
+          this.setState({ isFetching: false })
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   // Pass each customer to the ListItem component

@@ -1,18 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-class Header extends Component {
-  handleAddCustomer() {
-    console.log('handleAddCustomer')
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>React and Stripe</h2>
-        <button onClick={this.handleAddCustomer}>Add customer</button>
-      </div>
-    )
-  }
-}
+const Header = () => (
+  <div>
+    <h2>React and Stripe</h2>
+    <Link to="/add">Add customer</Link>
+  </div>
+)
 
 export default Header
