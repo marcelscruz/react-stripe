@@ -9,7 +9,6 @@ class List extends Component {
     super(props)
 
     this.state = {
-      customers: [],
       isFetching: true,
     }
   }

@@ -4,7 +4,7 @@ import createHistory from 'history/createBrowserHistory'
 import App from '../components/App'
 import Edit from '../components/Edit'
 
-const history = createHistory()
+export const history = createHistory()
 
 const AppRouter = () => (
   <Router history={history}>
