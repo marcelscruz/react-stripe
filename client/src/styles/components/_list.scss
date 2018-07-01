@@ -1,6 +1,7 @@
 .list {
   color: $dark;
-  margin: 2rem 8rem;
+  margin: 2rem auto;
+  max-width: 70rem;
 }
 
 .list h1 {
@@ -18,4 +19,10 @@
   height: 0.15rem;
   margin: 0 auto;
   width: 90%;
+}
+
+.fetching {
+  font-size: 2rem;
+  font-weight: 300;
+  padding: 3rem;
 }

@@ -54,9 +54,10 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form className="form" onSubmit={this.onSubmit}>
           <input
             type="text"
+            className="form__input"
             placeholder="First name"
             value={this.state.firstName}
             onChange={this.onFirstNameChange}
@@ -66,6 +67,7 @@ class Form extends Component {
 
           <input
             type="text"
+            className="form__input"
             placeholder="Last name"
             value={this.state.lastName}
             onChange={this.onLastNameChange}
@@ -74,6 +76,7 @@ class Form extends Component {
 
           <input
             type="email"
+            className="form__input"
             placeholder="Email"
             value={this.state.email}
             onChange={this.onEmailChange}
@@ -82,6 +85,7 @@ class Form extends Component {
 
           <input
             type="text"
+            className="form__input"
             placeholder="Description"
             value={this.state.description}
             onChange={this.onDescriptionChange}
@@ -90,12 +94,15 @@ class Form extends Component {
 
           <input
             type="text"
+            className="form__input"
             placeholder="Account balance"
             value={this.state.accountBalance}
             onChange={this.onAccountBalanceChange}
             required
           />
-          <button onClick={this.onSubmit}>Save</button>
+          <button className="button" onClick={this.onSubmit}>
+            Save
+          </button>
         </form>
       </div>
     )

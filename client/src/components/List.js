@@ -31,8 +31,8 @@ class List extends Component {
     const customers = this.props.customers
     return customers.map((customer, index) => {
       return (
-        <div>
-          <ListItem key={customer.id} customer={customer} />
+        <div key={customer.id}>
+          <ListItem customer={customer} />
           {index !== customers.length - 1 && (
             <div className="list__items__separator" />
           )}
@@ -51,7 +51,11 @@ class List extends Component {
       <div className="list">
         <h1>Customers</h1>
         <div className="list__items">
-          {isFetching ? 'Fetching users' : this.createCustomersList()}
+          {isFetching ? (
+            <div className="fetching">Fetching customers...</div>
+          ) : (
+            this.createCustomersList()
+          )}
         </div>
       </div>
     )
