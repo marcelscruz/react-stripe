@@ -1,3 +1,16 @@
 .list-item {
-  background: lightblue;
+  // border-bottom: 0.1rem solid $dark;
+  color: $dark;
+  font-size: 1rem;
+  padding: 2rem 2rem;
+  transition: 0.2s linear;
+}
+
+.list-item:hover {
+  background: darken($light, 1%);
+}
+
+.list-item > * {
+  font-weight: 300;
+  padding: 0.1rem;
 }

@@ -28,8 +28,16 @@ class List extends Component {
 
   // Pass each customer to the ListItem component
   createCustomersList() {
-    return this.props.customers.map(customer => {
-      return <ListItem key={customer.id} customer={customer} />
+    const customers = this.props.customers
+    return customers.map((customer, index) => {
+      return (
+        <div>
+          <ListItem key={customer.id} customer={customer} />
+          {index !== customers.length - 1 && (
+            <div className="list__items__separator" />
+          )}
+        </div>
+      )
     })
   }
 
@@ -40,9 +48,11 @@ class List extends Component {
   render() {
     const { isFetching } = this.state
     return (
-      <div>
-        <h1>list</h1>
-        {isFetching ? 'Fetching users' : this.createCustomersList()}
+      <div className="list">
+        <h1>Customers</h1>
+        <div className="list__items">
+          {isFetching ? 'Fetching users' : this.createCustomersList()}
+        </div>
       </div>
     )
   }

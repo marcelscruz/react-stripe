@@ -1,0 +1,21 @@
+.list {
+  color: $dark;
+  margin: 2rem 8rem;
+}
+
+.list h1 {
+  font-size: 2rem;
+  padding: 0.5rem 0.5rem 1rem;
+}
+
+.list__items {
+  border: 0.1rem solid $dark;
+  border-radius: 0.2rem;
+}
+
+.list__items__separator {
+  background: $dark;
+  height: 0.15rem;
+  margin: 0 auto;
+  width: 90%;
+}
