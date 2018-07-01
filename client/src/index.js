@@ -5,7 +5,7 @@ import { history } from './routers/AppRouter'
 import configureStore from './store/configureStore'
 import './styles/index.scss'
 import AppRouter from './routers/AppRouter'
-import registerServiceWorker from './registerServiceWorker'
+// import registerServiceWorker from './registerServiceWorker'
 
 const store = configureStore()
 
