@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const keys = require('./config/keys')
 const bodyParser = require('body-parser')
 const stripe = require('stripe')(keys.stripeSecretKey)
