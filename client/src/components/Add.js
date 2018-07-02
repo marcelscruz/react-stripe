@@ -19,7 +19,7 @@ class Add extends Component {
     return (
       <div className="add">
         <div className="add__header">
-          <h1>Add</h1>
+          <h1>Add Customer</h1>
         </div>
         <Form onSubmit={this.onSubmit} />
       </div>
